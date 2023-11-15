@@ -4,4 +4,40 @@
 
 html {
     font-family: 'Abel', sans-serif;
+
+    --color-gray-50: rgb(243, 236, 230);
+    --color-gray-100: rgb(207, 201, 195);
+    --color-gray-300: rgb(99, 92, 86);
+    --color-gray-400: rgb(70, 65, 60);
+    --color-gray-500: rgb(37, 34, 31);
+    --color-gray-600: rgb(32, 29, 26);
+    --color-gray-700: rgb(31, 26, 22);
+
+    --color-primary-50: rgb(212, 222, 253);
+    --color-primary-100: rgb(155, 179, 252);
+    --color-primary-200: rgb(119, 148, 233);
+    --color-primary-400: rgb(79, 114, 216);
+    --color-primary-500: rgb(40, 83, 212);
+
+    --color-primary-500-contrast: white;
+
+
+    --color-error-100: rgb(226, 109, 109);
+    --color-error-100: rgb(161, 15, 15);
+
+    --color-primary-500-bg: rgb(59, 57, 57);
+
+
+    --space-1: 0.25 rem;
+    --space-2: 0.5 rem;
+    --space-4: 1 rem;
+    --space-6: 1.25 rem;
+    --space-8: 2 rem;
+
+    --border-radius-small: 4px;
+    --border-radius-medium: 6px;
+
+    --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+
 }
