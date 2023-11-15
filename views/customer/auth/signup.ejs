@@ -1,4 +1,6 @@
 <%- include("../includes/head", {pageTitle:'signup'}) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/auth.css">
 </head>
 <body>
     <%- include('../includes/header') %>
@@ -43,10 +45,11 @@
             </div>
 
              <div class="form-control">
-                <label for="city">Street</label>
+                <label for="city">City</label>
                 <input type="text" name="city" id="city" required>
             </div>
             <button class="btn">Create Account</button>
+            <p id="switch-form"><a href="/login">Login instead</a></p>
              
         </form>
     </main>

@@ -12,6 +12,8 @@ app.set("views", path.join(__dirname, "views"));
 const db = require("./data/database");
 const authRoutes = require("./routes/auth.routes");
 
+app.use(express.static("public"));
+
 app.use(authRoutes);
 
 db.connectToDatabase().then(function () {
