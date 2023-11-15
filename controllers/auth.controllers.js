@@ -25,7 +25,7 @@ async function signup(req, res) {
 
 
 function getLogin(req, res) {
-  res.render("login");
+  res.render("customer/auth/login");
 }
 
 module.exports = {

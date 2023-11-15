@@ -12,7 +12,10 @@ class User{
         };
     }
     async signup() {
-        const hashedPassword=await bcrypt.hash(this.password, 12);
+        // if (!this.password) {
+        //     throw console.log('Password is Required')
+        // }
+        const hashedPassword= await bcrypt.hash(this.password, 12);
         await db.getDb().collection('users').insertOne({
             email: this.email,
             password: hashedPassword,
