@@ -11,7 +11,7 @@ async function connect() {
 
 function getDb() {
   if (!database) {
-    throw { message: "Could not connect to database" };
+    throw new Error("Could not connect to database");
   }
   return database;
 }
