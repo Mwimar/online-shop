@@ -3,6 +3,10 @@ const User = require('../models/user.model')
 const mongodb = require('mongodb')
 
 
+function getHome(req, res) {
+  res.render('admin/index')
+}
+
 function getSignup(req, res) {
   res.render("customer/auth/signup");
 }
@@ -31,5 +35,6 @@ function getLogin(req, res) {
 module.exports = {
   getSignup: getSignup,
   getLogin: getLogin,
-  signup:signup
+  signup: signup,
+  getHome:getHome,
 };
