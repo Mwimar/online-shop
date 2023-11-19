@@ -40,6 +40,14 @@ async function login(req, res) {
     res.redirect('/login'); 
     return;
   }
+
+  const passwordIsCorrect= await user.hasMatchingPassword(existingUser.password)
+  
+  if (!passwordIsCorrect) {
+    res.redirect('/login');
+    return;
+  }
+
   
 }
 
