@@ -1,5 +1,7 @@
 const User = require('../models/user.model')
 
+const authUtil = require("../util/authentication");
+
 const mongodb = require('mongodb')
 
 
@@ -47,8 +49,11 @@ async function login(req, res) {
     res.redirect('/login');
     return;
   }
-
   
+  authUtil.createUserSession(req, existingUser, function () {
+    res.redirect('/');
+  })
+
 }
 
 module.exports = {
