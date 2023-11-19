@@ -5,9 +5,7 @@ const authUtil = require("../util/authentication");
 const mongodb = require('mongodb')
 
 
-function getHome(req, res) {
-  res.render('admin/index')
-}
+
 
 function getSignup(req, res) {
   res.render("customer/auth/signup");
@@ -60,5 +58,4 @@ module.exports = {
   getSignup: getSignup,
   getLogin: getLogin,
   signup: signup,
-  getHome:getHome,
-};
+  };

@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const db = require("./data/database");
 const errorHandlerMiddleware = require('./middlewares/error-handler')
+const checkAuthStatusMiddleware=require('./middlewares/check-auth')
 const createSessionConfig=require('./config/sessions')
 
 const mongodb = require("mongodb");
@@ -21,7 +22,10 @@ const baseRoutes=require('./routes/base.routes')
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));//only supports regular form submission
 const sessionConfig = createSessionConfig();
+
 app.use(expressSession(sessionConfig))
+
+app.use(checkAuthStatusMiddleware)
 
 app.use(baseRoutes);
 app.use(authRoutes);
