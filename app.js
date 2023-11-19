@@ -14,13 +14,18 @@ app.set("views", path.join(__dirname, "views"));
 
 
 const authRoutes = require("./routes/auth.routes");
+const productRoutes = require('./routes/products.routes');
+const baseRoutes=require('./routes/base.routes')
+
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));//only supports regular form submission
 const sessionConfig = createSessionConfig();
 app.use(expressSession(sessionConfig))
 
+app.use(baseRoutes);
 app.use(authRoutes);
+app.use(productRoutes)
 app.use(errorHandlerMiddleware)
 
 db.connectToDatabase()
