@@ -11,6 +11,11 @@ class User{
             city:city,           
         };
     }
+
+    getUserWithSameEmail() {
+    return db.getDb().collection('users').findOne({email: this.email})
+}
+
     async signup() {
         // if (!this.password) {
         //     throw console.log('Password is Required')
