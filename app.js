@@ -1,9 +1,9 @@
 const express = require("express");
 const path = require("path");
 const db = require("./data/database");
-const errorHandlerMiddleware = require('./middlewares/error-handler')
-const checkAuthStatusMiddleware=require('./middlewares/check-auth')
-const createSessionConfig=require('./config/sessions')
+const errorHandlerMiddleware = require('./middlewares/error-handler');
+const checkAuthStatusMiddleware = require('./middlewares/check-auth');
+const createSessionConfig = require('./config/sessions');
 
 const mongodb = require("mongodb");
 
