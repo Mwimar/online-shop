@@ -15,6 +15,15 @@ function getSignup(req, res) {
 
 
 async function signup(req, res, next) {
+
+  const enteredData = {
+    email:req.body.email,
+      password:req.body.password,
+     fullname: req.body.fullname,
+     street: req.body.street,
+      postal:req.body.postal,
+      city:req.body.city
+  }
   
   if (!validation.userDetailsAreValid(
     req.body.email,
@@ -26,7 +35,8 @@ async function signup(req, res, next) {
   ) || !validation.emailIsConfirmed(req.body.email, req.body.confirmEmail)
   ) {
     sessionFlash.flashDataToSession(req, {
-      errorMessage: 'Please check your input, Passwords must be at least 6 characters long, postal code must be 5 characters long.'
+      errorMessage: 'Please check your input, Passwords must be at least 6 characters long, postal code must be 5 characters long.',
+      ...enteredData
     }, function () {
       res.redirect('/signup')
     })
@@ -47,6 +57,12 @@ async function signup(req, res, next) {
   try { 
     const existsAlready = await user.existsAlready();
     if (existsAlready) {
+      sessionFlash.flashDataToSession(req, {
+        errorMessage: 'User Exists Already! Try logging in',
+        ...enteredData
+      }, function () {
+        res.redirect('/signup');
+      })
       res.redirect('/signup')
       return;
     }
