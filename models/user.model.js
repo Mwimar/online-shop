@@ -14,12 +14,18 @@ class User{
 
     getUserWithSameEmail() {
     return db.getDb().collection('users').findOne({email: this.email})
-}
+    }
+    
+    async existsAlready() {
+        const existingUser = await this.getUserWithSameEmail();
+        if (existingUser) {
+            return true;
+        } return false;
+
+    }
 
     async signup() {
-        // if (!this.password) {
-        //     throw console.log('Password is Required')
-        // }
+        
         const hashedPassword= await bcrypt.hash(this.password, 12);
         await db.getDb().collection('users').insertOne({
             email: this.email,
