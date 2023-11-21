@@ -55,6 +55,8 @@ async function login(req, res) {
 }
 
 function logout(req, res) {
+  authUtil.destroyUserAuthSession(req);
+  res.redirect('/login');
   
 }
 
