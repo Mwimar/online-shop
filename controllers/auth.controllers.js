@@ -2,6 +2,7 @@ const User = require('../models/user.model')
 
 const authUtil = require("../util/authentication");
 const validation = require('../util/validation');
+const sessionFlash = require('../util/session-flash');
 
 const mongodb = require('mongodb')
 
@@ -22,7 +23,13 @@ async function signup(req, res, next) {
     req.body.street,
     req.body.postal,
     req.body.city
-    ) || !validation.emailIsConfirmed(req.body.email, req.body.confirmEmail)) {
+  ) || !validation.emailIsConfirmed(req.body.email, req.body.confirmEmail)
+  ) {
+    sessionFlash.flashDataToSession(req, {
+      errorMessage: 'Please check your input, Passwords must be at least 6 characters long, postal code must be 5 characters long.'
+    }, function () {
+      res.redirect('/signup')
+    })
       res.redirect('/signup')
       return;
     }
@@ -43,7 +50,7 @@ async function signup(req, res, next) {
       res.redirect('/signup')
       return;
     }
-    
+
     await user.signup();
 
   } catch (error) {
