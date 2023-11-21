@@ -17,4 +17,12 @@ function userDetailsAreValid(email, password, name, street, postal, city) {
     );
 }
 
-module.exports = userDetailsAreValid;
+function emailIsConfirmed(email, confirmEmail) {
+    return email === confirmEmail;
+    
+}
+
+module.exports = {
+    userDetailsAreValid:userDetailsAreValid,
+    emailIsConfirmed:emailIsConfirmed,
+}
