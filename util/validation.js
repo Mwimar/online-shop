@@ -3,16 +3,18 @@ function isEmpty(value) {
 }
 
 function userCredentialsAreValid(email, password) {
-    return email &&
-        email.includes('@') &&
-        password && password.trim().length >= 6 &&
+    return (
+     email && email.includes('@') && password && password.trim().length >= 6 )
 }
 
 function userDetailsAreValid(email, password, name, street, postal, city) {
-    return (userCredentialsAreValid(email, password) &&
+    return (
+        userCredentialsAreValid(email, password) &&
         !isEmpty(name) &&
         !isEmpty(street) &&
-        !isEmpty(postal))
+        !isEmpty(postal) &&
+        !isEmpty(city)
+    );
 }
 
 module.exports = userDetailsAreValid;

@@ -1,7 +1,7 @@
 const User = require('../models/user.model')
 
 const authUtil = require("../util/authentication");
-const userCredentialsAreValid=require('')
+const userDetailsAreValid = require('../util/validation');
 
 const mongodb = require('mongodb')
 
@@ -22,6 +22,17 @@ async function signup(req, res, next) {
     req.body.postal,
     req.body.city
   );  
+
+  if (!userDetailsAreValid(
+    req.body.email,
+    req.body.password,
+    req.body.fullname,
+    req.body.street,
+    req.body.postal,
+    req.body.city)) {
+    res.redirect('/signup')
+    return;
+  }
   
   try { 
     await user.signup();
