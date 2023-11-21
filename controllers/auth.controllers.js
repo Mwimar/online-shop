@@ -40,9 +40,7 @@ async function signup(req, res, next) {
     }, function () {
       res.redirect('/signup')
     })
-      res.redirect('/signup')
-      return;
-    }
+       }
     
     const user = new User(
       req.body.email,
@@ -63,9 +61,7 @@ async function signup(req, res, next) {
       }, function () {
         res.redirect('/signup');
       })
-      res.redirect('/signup')
-      return;
-    }
+       }
 
     await user.signup();
 
@@ -93,16 +89,26 @@ async function login(req, res, next) {
     next(error);
     return;
   }
+
+  const sessionErrorData = {
+    errorMessage: 'Invalid Credentials!- Kindly chaeck your email and password',
+      email: user.email,
+      password:user.password    
+  }
   
   if (!existingUser) {
-    res.redirect('/login'); 
+    sessionFlash.flashDataToSession(req, sessionErrorData, function () {
+      res.redirect('/login');       
+    })
     return;
   }
 
   const passwordIsCorrect = await user.hasMatchingPassword(existingUser.password);
   
   if (!passwordIsCorrect) {
-    res.redirect('/login');
+   sessionFlash.flashDataToSession(req, sessionErrorData, function () {
+      res.redirect('/login');       
+    })
     return;
   }
   
