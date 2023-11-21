@@ -10,14 +10,30 @@ const mongodb = require('mongodb')
 
 
 function getSignup(req, res) {
-  res.render("customer/auth/signup");
+  let sessionData = sessionFlash.getSessionData(req);
+
+  if (!sessionData) {
+    sessionData = {
+      email: '',
+      confirmEmail: '',
+      password: '',
+      fullname: '',
+      street: '' ,
+      postal: '',
+      city:'',
+      
+    }
+  }
+
+  res.render("customer/auth/signup", {inputData:sessionData});
 }
 
 
 async function signup(req, res, next) {
 
   const enteredData = {
-    email:req.body.email,
+    email: req.body.email,
+    confirmEmail:req.body.confirmEmail,
       password:req.body.password,
      fullname: req.body.fullname,
      street: req.body.street,
