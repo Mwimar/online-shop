@@ -93,7 +93,14 @@ async function signup(req, res, next) {
 
 
 function getLogin(req, res) {
-  res.render("customer/auth/login");
+  let sessionData = sessionFlash.getSessionData(req);
+  if (!sessionData) {
+    sessionData = {
+      email: '',
+      password:'',
+    }
+  }
+  res.render("customer/auth/login", inputData:sessionData);
 }
 
 async function login(req, res, next) {
