@@ -7,9 +7,15 @@
     <main>
         <h1>Create New Account</h1>
         <form action="/signup" method="POST">
+            <% if (inputData.errorMessage) {%>
+                <section class="alert">
+                    <h2>Invalid input!</h2>
+                    <p><% inputData.errorMessage %></p>
+                </section>
+                <% } %>
             <div class="form-control">
                 <label for="email">E-Mail</label>
-                <input type="email" name="email" id="email" required>
+                <input type="email" name="email" id="email"  required>
             </div>
 
              <div class="form-control">
