@@ -56,6 +56,8 @@ async function signup(req, res, next) {
     }, function () {
       res.redirect('/signup')
     })
+    
+    return;
        }
     
     const user = new User(
@@ -77,6 +79,7 @@ async function signup(req, res, next) {
       }, function () {
         res.redirect('/signup');
       })
+      return
        }
 
     await user.signup();
@@ -100,7 +103,7 @@ function getLogin(req, res) {
       password:'',
     }
   }
-  res.render("customer/auth/login", inputData:sessionData);
+  res.render("customer/auth/login", { inputData: sessionData });
 }
 
 async function login(req, res, next) {

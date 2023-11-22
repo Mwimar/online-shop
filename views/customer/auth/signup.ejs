@@ -15,28 +15,28 @@
                 <% } %>
             <div class="form-control">
                 <label for="email">E-Mail</label>
-                <input type="email" name="email" id="email"  required>
+                <input type="email" name="email" id="email" value="<% inputData.email %>" required>
             </div>
 
              <div class="form-control">
                 <label for="confirmEmail">Confirm E-Mail</label>
-                <input type="confirmEmail" name="confirmEmail" id="confirmEmail" required>
+                <input type="confirmEmail" name="confirmEmail" id="confirmEmail" value="<% inputData.confirmEmail %>" required>
             </div>
 
             <div class="form-control">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" minlength="6" required>
+                <input type="password" name="password" id="password" minlength="6" value="<% inputData.password %>" required>
             </div>
             <hr>
 
              <div class="form-control">
                 <label for="fullname">Full Name</label>
-                <input type="text" name="fullname" id="fullname" required>
+                <input type="text" name="fullname" id="fullname" value="<% inputData.fullname %>" required>
             </div>
 
             <div class="form-control">
                 <label for="street">Street</label>
-                <input type="text" name="street" id="street" required>
+                <input type="text" name="street" id="street" value="<% inputData.street %>"   required>
             </div>
 
              <div class="form-control">
@@ -47,12 +47,13 @@
                 id="postal" 
                 minLength="5"  
                 maxLength="5" 
+                value="<% inputData.postal %>" 
                 required>
             </div>
 
              <div class="form-control">
                 <label for="city">City</label>
-                <input type="text" name="city" id="city" required>
+                <input type="text" name="city" id="city"  value="<% inputData.city %>" required>
             </div>
             <button class="btn">Create Account</button>
              <p id="switch-form">You can <a href="/login">Login instead</a></p>
