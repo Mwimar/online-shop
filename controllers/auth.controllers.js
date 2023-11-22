@@ -24,6 +24,7 @@ function getSignup(req, res) {
       
     }
   }
+  console.log(sessionData)
 
   res.render("customer/auth/signup", {inputData:sessionData});
 }
@@ -56,7 +57,7 @@ async function signup(req, res, next) {
     }, function () {
       res.redirect('/signup')
     })
-    
+
     return;
        }
     
@@ -89,6 +90,7 @@ async function signup(req, res, next) {
     return;
     
   } 
+  console.log(enteredData)
   
   res.redirect('/login')
 }
