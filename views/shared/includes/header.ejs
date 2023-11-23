@@ -2,6 +2,15 @@
   <div><a href="/">WEBDON</a></div>
   <nav>
     <ul>
+      <li>
+        <a href="/">Shop</a>
+      </li>
+       <li>
+        <a href="/cart">Cart</a>
+      </li>
+       <li>
+        <a href="/orders">Orders</a>
+      </li>
       <% if (locals.isAuth) {%>
       <li>
         <form action="/logout" method="POST">
