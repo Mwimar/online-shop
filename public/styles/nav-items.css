@@ -21,6 +21,10 @@
     align-items: center;
 }
 
+.nav-items li {
+    margin: 0 0.5rem;
+}
+
 #mobile-menu-btn {
     display: flex;
     flex-direction: column;
@@ -30,6 +34,7 @@
     width: 2.25rem;
     height: 2.25rem;
     background-color: transparent;
+    padding: 0;
 }
 
 #mobile-menu-btn span {
