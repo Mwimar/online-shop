@@ -1,4 +1,11 @@
+main {
+    margin-top: 6rem;
+}
+
 #main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     max-width: 60rem;
     height: 5rem;
@@ -9,6 +16,10 @@
     align-items: center;
     border-bottom: 1px solid var(--color-primary-500);
     background-color: var(--color-gray-500);
+}
+
+#main-header nav {
+    display: none;
 }
 
 #logo a {
@@ -45,6 +56,14 @@
 
 
 @media (min-width:48rem) {
+    main {
+        margin-top: 0;
+    }
+
+    #main-header {
+        position: static;
+    }
+
     #mobile-menu-btn {
         display: none;
     }
@@ -61,5 +80,9 @@
     .nav-items a:hover,
     .nav-items a:active {
         background-color: var(--color-primary-500-bg);
+    }
+
+    #main-header nav {
+        display: block;
     }
 }
