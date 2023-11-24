@@ -15,3 +15,25 @@
     font-weight: bold;
     font-size: 2rem;
 }
+
+.nav-items {
+    display: flex;
+    align-items: center;
+}
+
+#mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: none;
+    cursor: pointer;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: transparent;
+}
+
+#mobile-menu-btn span {
+    width: 2.25rem;
+    height: 0.2rem;
+    background-color: var(--color-gray-100);
+}
