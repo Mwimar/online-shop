@@ -1,45 +1,7 @@
 <header id="main-header">
   <div id="logo"><a href="/">WEBDON</a></div>
   <nav>
-    <ul>
-       <% if (!locals.isAdmin) {%>
-      <li>
-        <a href="/">Shop</a>
-      </li>
-      <li>
-       <a href="/cart">Cart</a>
-     </li>
- <% } %>
-
-
-      <% if (locals.isAuth && !locals.isAdmin) {%>
-       <li>
-        <a href="/orders">Orders</a>
-      </li>
-       <% } %>
-
-<% if (locals.isAdmin) {%>
-  <li> <a href="/admin/products">Manage Products</a> </li>
-
-  <li>  <a href="/admin/orders">Manage Orders</a>  </li>
-   <% } %>
-
-   <% if (!locals.isAuth) {%>
-  <li> <a href="/login">Login</a></li>
-
-  <li> <a href="/signup">Signup</a>  </li>
-   <% } %>
-
-   
-
-      <% if (locals.isAuth) {%>
-      <li>
-        <form action="/logout" method="POST">
-          <button> Logout</button>
-        </form>
-      </li>
-      <% } %>
-    </ul>
+   <%- include('nav-items') %>
   </nav>
 
 <button id="mobile-menu-btn">
@@ -50,6 +12,6 @@
 </header>
 <aside>
   <nav>
-    
+<%- include('nav-items') %>
   </nav>
 </aside>
