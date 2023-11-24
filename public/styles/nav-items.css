@@ -39,6 +39,17 @@ main {
     margin: 0 0.5rem;
 }
 
+.nav-items button {
+    cursor: pointer;
+    font: inherit;
+    border: 1px solid var(--color-primary-500);
+    border-radius: 4px;
+    color: var(--color-primary-100);
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+
+}
+
 #mobile-menu-btn {
     display: flex;
     flex-direction: column;
@@ -102,6 +113,10 @@ main {
     .nav-items a {
         padding: 0.5rem 1rem;
         border-radius: 4px;
+    }
+
+    .nav-items {
+        flex-direction: row;
     }
 
     .nav-items a:hover,
