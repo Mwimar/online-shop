@@ -1,5 +1,5 @@
-
-  <div><a href="/">WEBDON</a></div>
+<header id="main-header">
+  <div id="logo"><a href="/">WEBDON</a></div>
   <nav>
     <ul>
        <% if (!locals.isAdmin) {%>
@@ -24,7 +24,7 @@
   <li>  <a href="/admin/orders">Manage Orders</a>  </li>
    <% } %>
 
-   <% if (locals.isAuth) {%>
+   <% if (!locals.isAuth) {%>
   <li> <a href="/login">Login</a></li>
 
   <li> <a href="/signup">Signup</a>  </li>
@@ -41,4 +41,15 @@
       <% } %>
     </ul>
   </nav>
+
+<button id="mobile-menu-btn">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 </header>
+<aside>
+  <nav>
+    
+  </nav>
+</aside>
