@@ -42,3 +42,24 @@
     height: 0.2rem;
     background-color: var(--color-gray-100);
 }
+
+
+@media (min-width:48rem) {
+    #mobile-menu-btn {
+        display: none;
+    }
+
+    #mobile-menu {
+        display: none;
+    }
+
+    .nav-items a {
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+    }
+
+    .nav-items a:hover,
+    .nav-items a:active {
+        background-color: var(--color-primary-500-bg);
+    }
+}
