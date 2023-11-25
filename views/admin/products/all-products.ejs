@@ -15,9 +15,9 @@
 
          <section>
             <ul>
-                <% for (const)  {%>
+                <% for (const product of products)  {%>
                  <li>
-                   <%- include('includes/product-item') %> 
+                   <%- include('includes/product-item', {product:product}) %> 
                  </li>
                  <% } %>
             </ul>         
