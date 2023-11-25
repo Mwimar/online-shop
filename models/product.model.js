@@ -13,12 +13,12 @@ class Product {
     async save() {
         const productData = {
             title: this.title,
-            summary: this.summary.Product,
+            summary: this.summary,
             price: this.price,
             description: this.description,
             image:this.image,
         }
-        await db.getDb.collection('products').insertOne(productData);
+        await db.getDb().collection('products').insertOne(productData);
     }
 }
 
