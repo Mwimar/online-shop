@@ -10,6 +10,13 @@ class Product {
         this.imageUrl = `/products/assets/images/${productData.image}`;
     }
 
+    static async findAll() {
+        const products = await db.getDb().collection('products').find().toArray();
+        return products.map(function (productDocument) {
+            return new Product(productDocument)
+        });
+    }
+
     async save() {
         const productData = {
             title: this.title,
