@@ -30,7 +30,7 @@ class Product {
             error.code = 404;
             throw error;
         }
-        return product;
+        return new Product (product);
     }
 
     static async findAll() {
@@ -56,14 +56,21 @@ class Product {
 
         if (this.id) {
             const productId = new mongodb.ObjectId(this.id);
-            await db.getDb().collection('products').updateOne({ _id: productId },
+
+            if (!this.image) {
+                delete productData.image;
+            }
+           
+            await db.getDb().collection('products').updateOne(
+                { _id: productId },
                 { $set:productData}
             );
             
         } else {
             
             await db.getDb().collection('products').insertOne(productData);
-        }
+
+                }
 
     }
 
@@ -71,6 +78,8 @@ class Product {
         this.image = newImage;
         this.updateImageData();
     }
+
+    
 }
 
 module.exports = Product;
