@@ -34,6 +34,7 @@ async function createNewProduct(req, res, next) {
 async function getUpdateProduct(req, res, next) { 
     try {
         const product = await Product.findById(req.params.id);
+        console.log(product);
         res.render('admin/products/update-product', {product:product})
      } catch (error) {
         next(error);
