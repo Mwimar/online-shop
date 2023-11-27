@@ -42,7 +42,12 @@ async function getUpdateProduct(req, res, next) {
     }
 }
 
-function updateProduct() {}
+function updateProduct(req, res) {
+    const product= new Product({
+        ...req.body,   
+        _id:req.params.id
+    })
+}
 
 module.exports = {
     getProducts:getProducts,
