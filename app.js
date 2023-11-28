@@ -3,7 +3,7 @@ const path = require("path");
 const db = require("./data/database");
 const errorHandlerMiddleware = require('./middlewares/error-handler');
 const checkAuthStatusMiddleware = require('./middlewares/check-auth');
-const protectRoutes = require('./middlewares/protect-routes');
+const protectRoutesMiddleware = require('./middlewares/protect-routes');
 const createSessionConfig = require('./config/sessions');
 
 const mongodb = require("mongodb");
@@ -33,7 +33,7 @@ app.use(checkAuthStatusMiddleware)
 app.use(baseRoutes);
 app.use(authRoutes);
 app.use(productRoutes);
-app.use(protectRoutes);
+app.use(protectRoutesMiddleware);
 app.use('/admin',adminRoutes);
 app.use(errorHandlerMiddleware);
 
