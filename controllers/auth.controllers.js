@@ -24,7 +24,7 @@ function getSignup(req, res) {
       
     }
   }
-  console.log(sessionData)
+  
 
   res.render("customer/auth/signup", {inputData:sessionData});
 }
