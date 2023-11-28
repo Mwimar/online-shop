@@ -6,8 +6,15 @@
     <%- include('../../shared/includes/header') %>
     <main>
         <h1>All Products</h1>
+        <ul id="products-grid">
+            <% for (const product of products) {%>
+             <li>
+                 <%- include('../../shared/includes/product-item', {product:product}) %> 
+             </li>
+             <% } %>
+
+        </ul>
        
-        <p>You can Add items to your cart and shop</a></p>
     </main>
 
     <%- include('../../shared/includes/footer') %>

@@ -9,4 +9,4 @@ async function getAllProducts(req, res, next) {
     }
 }
 
-module.exports = getAllProducts;
+module.exports = { getAllProducts:getAllProducts }
