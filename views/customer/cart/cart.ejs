@@ -7,8 +7,7 @@
 <body>
     <%- include('../../shared/includes/header') %>
     <main>
-        <h1>Your Cart</h1>
-       
+        <h1>Your Cart</h1>       
        <ul id="cart-items">
            <% for (const cartItem of locals.cart.items) {%>
         <li>
@@ -17,12 +16,8 @@
         <% } %>
         </ul>
         <div id="cart-total">
-            <p>Total: $<%= locals.cart.totalPrice %></p>
-
-            <button class="btn">Buy Products</button>
+            <p>Total: $<%= locals.cart.totalPrice.toFixed(2) %>
         </div>
-       
-       
     </main>
 
     <%- include('../../shared/includes/footer') %>

@@ -1,11 +1,21 @@
 <article class="cart-item">
     <div class="cart-item-info">
-        <h2><%= item.product.title %></h2>
-        <p><%= item.totalPrice %><span class="cart-product-price">(<%= item.product.price %>)</span></p>
-    </div>
+    <h2><%= item.product ? item.product.title : 'Product Title Not Available' %></h2>
+    <p>
+        $<%= item.totalPrice %>
+        <span class="cart-product-price">
+            <% if (item.product && typeof item.product.price === 'number') { %>
+                (<%= item.product.price.toFixed(2) %>)
+            <% } else { %>
+                (Price Not Available)
+            <% } %>
+        </span>
+    </p>
+</div>
+
 
     <div class="cart-item-management">
-        <input type="text" value="<%= item.totalQuantity %>" required>
+        <input type="text" value="<%= item.quantity %>" required>
         <button class="btn btn-alt">Update</button>
     </div>
  </article>
