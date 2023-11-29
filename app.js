@@ -20,6 +20,7 @@ const authRoutes = require("./routes/auth.routes");
 const productRoutes = require('./routes/products.routes');
 const baseRoutes = require('./routes/base.routes');
 const adminRoutes = require('./routes/admin.routes');
+const cartRoutes = require('./routes/cart.routes');
 
 
 app.use(express.static("public"));
@@ -33,6 +34,7 @@ app.use(cartMiddleware);
 app.use(checkAuthStatusMiddleware)
 
 app.use(baseRoutes);
+app.use(cartRoutes);
 app.use(authRoutes);
 app.use(productRoutes);
 app.use(protectRoutesMiddleware);
