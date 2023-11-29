@@ -4,6 +4,7 @@ const db = require("./data/database");
 const errorHandlerMiddleware = require('./middlewares/error-handler');
 const checkAuthStatusMiddleware = require('./middlewares/check-auth');
 const protectRoutesMiddleware = require('./middlewares/protect-routes');
+const cartMiddleware = require('./middlewares/cart');
 const createSessionConfig = require('./config/sessions');
 
 const mongodb = require("mongodb");
@@ -26,7 +27,8 @@ app.use('/products/assets', express.static('product-data'))
 app.use(express.urlencoded({ extended: false }));//only supports regular form submission
 const sessionConfig = createSessionConfig();
 
-app.use(expressSession(sessionConfig))
+app.use(expressSession(sessionConfig));
+app.use(cartMiddleware);
 
 app.use(checkAuthStatusMiddleware)
 
