@@ -26,6 +26,7 @@ const cartRoutes = require('./routes/cart.routes');
 app.use(express.static("public"));
 app.use('/products/assets', express.static('product-data'))
 app.use(express.urlencoded({ extended: false }));//only supports regular form submission
+app.use(express.json());
 const sessionConfig = createSessionConfig();
 
 app.use(expressSession(sessionConfig));
@@ -34,7 +35,7 @@ app.use(cartMiddleware);
 app.use(checkAuthStatusMiddleware)
 
 app.use(baseRoutes);
-app.use(cartRoutes);
+app.use('/cart',cartRoutes);
 app.use(authRoutes);
 app.use(productRoutes);
 app.use(protectRoutesMiddleware);
