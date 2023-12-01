@@ -13,6 +13,7 @@ async function addCartItem(req, res, next) {
         next(error);
         return;
     }
+    
 
     const cart = res.locals.cart;
  
@@ -23,6 +24,8 @@ async function addCartItem(req, res, next) {
         message: 'Cart Updated',
         newTotalItems:cart.totalQuantity
     })
+     
+        console.log(res.locals.cart);
 }
 
 module.exports = {

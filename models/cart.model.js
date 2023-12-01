@@ -1,5 +1,5 @@
 class Cart {
-    constructor(items=[], totalQuantity=0,totalPrice=0) {
+    constructor(items = [], totalQuantity = 0, totalPrice = 0) {
         this.items = items;
         this.totalQuantity = totalQuantity;
         this.totalPrice = totalPrice;
@@ -12,11 +12,11 @@ class Cart {
             totalPrice: product.price,
         };
 
-        for (let i = 0; i < this.items.length; i++){
+        for (let i = 0; i < this.items.length; i++) {
             const item = this.items[i];
             if (item.product === product.id) {
                 cartItem.quantity = item.quantity + 1;
-                cartItem.totalPrice= item.totalPrice + product.price;
+                cartItem.totalPrice = item.totalPrice + product.price;
                 this.items[i] = cartItem;
 
                 this.totalQuantity++;
@@ -28,7 +28,6 @@ class Cart {
         this.totalQuantity++;
         this.totalPrice += product.price;
     }
-} 
-
+}
 
 module.exports = Cart;
