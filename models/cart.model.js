@@ -47,6 +47,7 @@ class Cart {
 
                  this.totalQuantity = this.totalQuantity - item.quantity;
                  this.totalPrice -= item.totalPrice;
+                 return { updatedItemPrice: 0 }
                  
             }
         }
