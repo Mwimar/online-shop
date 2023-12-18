@@ -3,7 +3,13 @@
     flex-direction: column;
     background-color: var(--color-gray-700);
     padding: 1rem;
+    margin: 1rem 0;
     border-radius: 6px;
+}
+
+.cart-item h2 {
+    font-size: 1rem;
+    margin: 0;
 }
 
 @media(min-width:48rem) {
