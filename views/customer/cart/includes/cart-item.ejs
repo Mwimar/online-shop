@@ -1,14 +1,16 @@
 <article class="cart-item">
     <div class="cart-item-info">
-    <h2><%= item.product ? item.product.title : 'Product Title Not Available' %></h2>
+    <h2><%= item.product.title %></h2>
     <p>
-        $<%= item.totalPrice %>
-        <span class="cart-product-price">
+        $<%= item.totalPrice.toFixed(2) %>
+        <span class="cart-product-price">             
+            
             <% if (item.product && typeof item.product.price === 'number') { %>
                 (<%= item.product.price.toFixed(2) %>)
             <% } else { %>
                 (Price Not Available)
             <% } %>
+
         </span>
     </p>
 </div>

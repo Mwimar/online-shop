@@ -1,0 +1,11 @@
+.cart-item {
+    display: flex;
+    flex-direction: column;
+}
+
+@media(min-width:48rem) {
+    .cart-item {
+        flex-direction: row;
+
+    }
+}

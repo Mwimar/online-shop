@@ -2,13 +2,15 @@ const Product = require('../models/product.model');
 
 
 function getCart(req, res) { 
+    console.log(req)
     res.render('customer/cart/cart')
 }
 
 async function addCartItem(req, res, next) { 
     let product;
     try { 
-     product= await Product.findById(req.body.productId);
+        product = await Product.findById(req.body.productId);
+        console.log(product);
     } catch (error) {
         next(error);
         return;
@@ -25,7 +27,7 @@ async function addCartItem(req, res, next) {
         newTotalItems:cart.totalQuantity
     })
      
-        console.log(res.locals.cart);
+        
 }
 
 module.exports = {
