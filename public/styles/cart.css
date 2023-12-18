@@ -1,6 +1,9 @@
 .cart-item {
     display: flex;
     flex-direction: column;
+    background-color: var(--color-gray-700);
+    padding: 1rem;
+    border-radius: 6px;
 }
 
 @media(min-width:48rem) {
