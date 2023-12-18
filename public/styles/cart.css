@@ -24,6 +24,13 @@
     color: var(--color-gray-300)
 }
 
+#cart-total {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #cart-total p {
     font-size: 1.5rem;
     font-weight: bold;
@@ -36,4 +43,18 @@
         flex-direction: row;
 
     }
+
+    #cart-total p {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--color-primary-500);
+    }
+
+    #cart-total {
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+
+
 }
