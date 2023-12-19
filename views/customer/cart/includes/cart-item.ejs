@@ -16,7 +16,7 @@
 </div>
 
 
-    <form class="cart-item-management">
+    <form class="cart-item-management" data-productid="<%= item.product.id %>">
         <input type="text" value="<%= item.quantity %>" required>
         <button class="btn btn-alt">Update</button>
     </form>
