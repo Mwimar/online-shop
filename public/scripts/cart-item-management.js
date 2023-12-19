@@ -29,6 +29,8 @@ async function updateCartItem(event) {
         return;
     }
 
+    const responseData = await response.json();
+
 
 }
 
