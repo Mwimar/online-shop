@@ -3,13 +3,14 @@
     <h2><%= item.product.title %></h2>
     <p>
         $<%= item.totalPrice.toFixed(2) %>
-        <span class="cart-product-price">             
+        <span class="cart-product-price"> <span class="cart-item-price">            
             
             <% if (item.product && typeof item.product.price === 'number') { %>
                 (<%= item.product.price.toFixed(2) %>)
             <% } else { %>
                 (Price Not Available)
             <% } %>
+            </span>
 
         </span>
     </p>

@@ -5,6 +5,7 @@ async function updateCartItem(event) {
     const form = event.target;
     const productId = form.dataset.productid;
     const quantity = form.firstElementChild.value;
+    console.log(productId);
 
     let response;
 
@@ -31,9 +32,11 @@ async function updateCartItem(event) {
 
     const responseData = await response.json();
 
+    const cartItemTotalPriceElement= form.parentElement.querySelector('.cart-item.price')
+
 
 }
 
 for (const formElement of cartItemUpdateFormElements) {
-    formElement.addEventListener('submit',)
+    formElement.addEventListener('submit', updateCartItem)
 }
