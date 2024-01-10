@@ -32,7 +32,8 @@ async function updateCartItem(event) {
 
     const responseData = await response.json();
 
-    const cartItemTotalPriceElement= form.parentElement.querySelector('.cart-item.price')
+    const cartItemTotalPriceElement = form.parentElement.querySelector('.cart-item.price');
+    cartItemTotalPriceElement.textContent = responseData.updatedItemPrice.toFixed(2);
 
 
 }
