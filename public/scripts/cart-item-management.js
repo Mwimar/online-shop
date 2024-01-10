@@ -1,4 +1,6 @@
 const cartItemUpdateFormElements = document.querySelectorAll('.cart-item-management');
+const cartTotalPriceElement = document.getElementById('cart-total-price');
+const cartBadge = document.querySelector('.nav-items .badge');
 
 async function updateCartItem(event) {
     event.preventDefault();
@@ -35,12 +37,12 @@ async function updateCartItem(event) {
     const cartItemTotalPriceElement = form.parentElement.querySelector('.cart-item.price');
     cartItemTotalPriceElement.textContent = responseData.updatedItemPrice.toFixed(2);
 
-    const cartTotalPriceElement = document.getElementById('cart-total-price');
-    cartItemTotalPriceElement.textContent = responseData.newTotalPrice.toFixed(2);
+    cartTotalPriceElement.textContent = responseData.newTotalPrice.toFixed(2);
 
-
-}
+    cartBadge.textContent = responseData.newTotalQuantity;
 
 for (const formElement of cartItemUpdateFormElements) {
     formElement.addEventListener('submit', updateCartItem)
+
+  }
 }
