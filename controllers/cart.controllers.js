@@ -8,6 +8,9 @@ const Product = require('../models/product.model');
         next(error);
         return;
     }
+     
+     res.locals.cart.addItem(product);
+     req.session.cart = res.locals.cart;
  }
  
 module.exports = {
