@@ -4,6 +4,11 @@ class Cart {
     }
 
     addItem(product) {
+        const cartItem = {
+            product: product,
+            quantity: 1,
+            totalPrice: product.price
+        };
         
         for (let i = 0; i < this.items.length; i++){
             const item = this.items[i];
