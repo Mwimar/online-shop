@@ -11,7 +11,9 @@ const Product = require('../models/product.model');
      
      res.locals.cart.addItem(product);
      req.session.cart = res.locals.cart;
-     req.session.save();
+     res.status(201).json({
+         message: 'Cart updated'
+     })
  }
  
 module.exports = {
