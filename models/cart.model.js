@@ -3,6 +3,9 @@ class Cart {
         this.items = items;
         this.totalQuantity = totalQuantity;
         this.totalPrice = totalPrice;
+
+        this.totalQuantity++;
+    
     }
 
     addItem(product) {
