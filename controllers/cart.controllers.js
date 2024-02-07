@@ -9,8 +9,9 @@ const Product = require('../models/product.model');
         return;
     }
      
-     res.locals.cart.addItem(product);
-     req.session.cart = res.locals.cart;
+     const cart = res.locals.cart;
+     cart.addItem(product);
+     req.session.cart = cart;
      res.status(201).json({
          message: 'Cart updated'
      })
