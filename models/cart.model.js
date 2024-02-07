@@ -26,5 +26,7 @@ class Cart {
             }
         }
         this.items.push(cartItem);
+        this.totalQuantity++;
+        this.totalPrice += product.price;
     }
 }
