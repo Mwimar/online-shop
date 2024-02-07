@@ -3,9 +3,7 @@ class Cart {
         this.items = items;
         this.totalQuantity = totalQuantity;
         this.totalPrice = totalPrice;
-
-        this.totalQuantity++;
-    
+         
     }
 
     addItem(product) {
@@ -21,6 +19,9 @@ class Cart {
                 cartItem.quantity = cartItem.quantity + 1;
                 cartItem.totalPrice = cartItem.totalPrice + product.price;
                 this.items[i] = cartItem;
+
+                this.totalQuantity++;
+                this.totalPrice += product.price;
                 return;
             }
         }
