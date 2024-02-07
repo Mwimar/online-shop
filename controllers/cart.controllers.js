@@ -13,8 +13,9 @@ const Product = require('../models/product.model');
      cart.addItem(product);
      req.session.cart = cart;
      res.status(201).json({
-         message: 'Cart updated'
-     })
+         message: 'Cart updated',
+         newTotalItems: cart.totalQuantity
+     });
  }
  
 module.exports = {
