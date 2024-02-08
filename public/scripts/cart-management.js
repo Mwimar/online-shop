@@ -11,6 +11,11 @@ async function addToCart() {
             'Content-Type': 'application/json'
         }
     });
+
+    if (!response.ok) {
+        alert('something went wrong!');
+        return;
+    }
     
 }
 
