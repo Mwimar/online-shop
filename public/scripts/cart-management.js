@@ -7,7 +7,10 @@ async function addToCart() {
         body: JSON.stringify({
             productId: productId
         }),
-    })
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
     
 }
 
