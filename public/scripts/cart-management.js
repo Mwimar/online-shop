@@ -2,9 +2,10 @@ const addToCartButtonElement = document.querySelector('#product-details button')
 
 async function addToCart() {
     const productId = addToCartButtonElement.dataset.productid;
+    let response;
     try {
         
-        const response = await fetch('/cart/items', {
+        response = await fetch('/cart/items', {
             method: 'POST',
             body: JSON.stringify({
                 productId: productId
@@ -22,6 +23,9 @@ async function addToCart() {
         alert('something went wrong!');
         return;
     }
+
+    const responseData = await response.json();
+    const newTotalQuantity = responseData.newTotalItems;
     
 }
 
