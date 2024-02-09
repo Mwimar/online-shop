@@ -30,7 +30,10 @@ class Cart {
         this.totalPrice += product.price;
     }
 
-    updateItem(product) {
+    updateItem(productId, newQuantity) {
+        if (newQuantity > 0) {
+            
+        }
         
     }
 }
