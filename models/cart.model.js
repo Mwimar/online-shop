@@ -29,5 +29,9 @@ class Cart {
         this.totalQuantity++;
         this.totalPrice += product.price;
     }
+
+    updateItem(product) {
+        
+    }
 }
 module.exports = Cart;
