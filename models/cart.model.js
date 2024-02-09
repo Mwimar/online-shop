@@ -41,7 +41,7 @@ class Cart {
                 this.items[i] = cartItem;
 
                 this.totalQuantity = newQuantity + quantityChange;
-                this.totalPrice += product.price;
+                this.totalPrice += quantityChange * product.price;
                 return;
             }
         }
