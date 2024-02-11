@@ -1,6 +1,7 @@
 const Product = require('../models/product.model');
 
-function getCart() {
+function getCart(req, res) {
+    res.render('customer/cart/cart');
     
 }
 
@@ -23,5 +24,6 @@ function getCart() {
  }
  
 module.exports = {
-    addCartItem: addCartItem
+    addCartItem: addCartItem,
+    getCart:getCart
 };
