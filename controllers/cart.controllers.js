@@ -1,5 +1,9 @@
 const Product = require('../models/product.model');
 
+function getCart() {
+    
+}
+
  async function addCartItem(req, res) {
     let product;
     try {
