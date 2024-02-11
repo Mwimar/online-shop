@@ -30,24 +30,7 @@ class Cart {
         this.totalPrice += product.price;
     }
 
-    updateItem(productId, newQuantity) {
-        for (let i = 0; i < this.items.length; i++){
-            const item = this.items[i];
-            if (item.product.id === productId) {
-                const cartItem = { ...item };
-                const quantityChange = newQuantity - item.quantity;
-                cartItem.quantity = newQuantity;
-                cartItem.totalPrice = newQuantity * product.price;
-                this.items[i] = cartItem;
-
-                this.totalQuantity = newQuantity + quantityChange;
-                this.totalPrice += quantityChange * product.price;
-                return;
-            }
-        }
-        if (newQuantity > 0) {
-            
-        }
+    updateItem() {
         
     }
 }
