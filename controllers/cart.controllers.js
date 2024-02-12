@@ -22,8 +22,11 @@ function getCart(req, res) {
          newTotalItems: cart.totalQuantity
      });
  }
+
+ function updateCartItem(req,res){}
  
 module.exports = {
     addCartItem: addCartItem,
-    getCart:getCart
+    getCart: getCart,
+    updateCartItem:updateCartItem
 };

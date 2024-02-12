@@ -41,7 +41,7 @@ class Cart {
                 this.items[i] = cartItem;
 
                 this.totalQuantity = this.totalQuantity + quantityChange;
-                this.totalPrice += quantityChange*product.price;
+                this.totalPrice += quantityChange * product.price;
                 return; 
             } else if (item.product.id === productId && newQuantity <= 0) {
                 this.items.splice(i, 1);
