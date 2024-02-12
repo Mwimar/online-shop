@@ -2,8 +2,12 @@ const cartItemUpdateFormElements = document.querySelectorAll('.cart-item-managem
 
 function updateCartItem(event) {
     event.preventDefault();
+
+    const form = event.target;
+
+    const productId = form.dataset.productid;
 }
 
 for (const formElement of cartItemUpdateFormElements) {
-    formElement.addEventListener('submit');
+    formElement.addEventListener('submit', updateCartItem);
 }
