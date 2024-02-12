@@ -23,7 +23,10 @@ function getCart(req, res) {
      });
  }
 
- function updateCartItem(req,res){}
+function updateCartItem(req, res) {
+    const cart = res.locals.cart;
+    cart.updateItem(req.body.productId, req.body.quantity)
+ }
  
 module.exports = {
     addCartItem: addCartItem,
