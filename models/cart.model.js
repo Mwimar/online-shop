@@ -44,7 +44,9 @@ class Cart {
                 this.totalPrice += quantityChange*product.price;
                 return; 
             } else if (item.product.id === productId && newQuantity <= 0) {
-                this.items.splice(i);
+                this.items.splice(i, 1);
+                this.totalQuantity = this.totalQuantity - item.quantity;
+                this.totalPrice -= item.totalprice;
             }
         }
         
