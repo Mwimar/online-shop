@@ -43,11 +43,11 @@ class Cart {
                 this.totalQuantity = this.totalQuantity + quantityChange;
                 this.totalPrice += quantityChange*product.price;
                 return; 
+            } else if (item.product.id === productId && newQuantity <= 0) {
+                
             }
         }
-        if (newQuantity > 0) {
-            
-        }
+        
     }
 }
 module.exports = Cart;
