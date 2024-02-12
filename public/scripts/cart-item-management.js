@@ -13,7 +13,10 @@ function updateCartItem(event) {
         body: JSON.stringify({
             productId: productId,
             quantity:quantity
-        })
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     })
 }
 
