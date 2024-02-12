@@ -1,23 +1,30 @@
 const cartItemUpdateFormElements = document.querySelectorAll('.cart-item-management');
 
-function updateCartItem(event) {
+async function updateCartItem(event) {
     event.preventDefault();
 
     const form = event.target;
 
     const productId = form.dataset.productid;
     const quantity = form.firstElementChild.value;
+    let response;
 
-    fetch('/cart/items', {
-        method: 'PATCH',
-        body: JSON.stringify({
-            productId: productId,
-            quantity:quantity
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    try {
+         response = await fetch('/cart/items', {
+             method: 'PATCH',
+             body: JSON.stringify({
+                 productId: productId,
+                 quantity:quantity
+             }),
+             headers: {
+                 'Content-Type': 'application/json'
+             }
+         })
+        
+    } catch (error) {
+        alert('Something Went Wrong')
+    }
+
 }
 
 for (const formElement of cartItemUpdateFormElements) {
