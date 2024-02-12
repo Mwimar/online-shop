@@ -7,6 +7,14 @@ function updateCartItem(event) {
 
     const productId = form.dataset.productid;
     const quantity = form.firstElementChild.value;
+
+    fetch('/cart/items', {
+        method: 'PATCH',
+        body: JSON.stringify({
+            productId: productId,
+            quantity:quantity
+        })
+    })
 }
 
 for (const formElement of cartItemUpdateFormElements) {
