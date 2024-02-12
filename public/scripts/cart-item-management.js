@@ -22,7 +22,14 @@ async function updateCartItem(event) {
          })
         
     } catch (error) {
-        alert('Something Went Wrong')
+        alert('Something Went Wrong');
+        return;
+    }
+
+
+    if (!response.ok) {
+        alert('Something Went Wrong');
+        return;
     }
 
 }
