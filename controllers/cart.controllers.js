@@ -27,6 +27,9 @@ function updateCartItem(req, res) {
     const cart = res.locals.cart;
     cart.updateItem(req.body.productId, req.body.quantity);
     req.session.cart = cart;
+    res.json({
+        message: 'Item updated',
+    })
  }
  
 module.exports = {
