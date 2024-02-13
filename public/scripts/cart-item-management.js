@@ -35,7 +35,11 @@ async function updateCartItem(event) {
     const responseData = await response.json();
 
     const cartItemTotalPriceElement = form.parentElement.querySelector('.cart-item-price');
-    
+    cartItemTotalPriceElement.textContent = responseData.updatedItemPrice.toFixed(2);
+
+    const cartTotalElement = document.getElementById('cart-total-price');
+    cartItemTotalPriceElement.textContent = responseData.newTotalPrice.toDixed(2);
+
 
 }
 
