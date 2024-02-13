@@ -40,6 +40,9 @@ async function updateCartItem(event) {
     const cartTotalElement = document.getElementById('cart-total-price');
     cartItemTotalPriceElement.textContent = responseData.newTotalPrice.toDixed(2);
 
+    const cartBadge = document.querySelector('.nav-items .badge');
+    cartBadge.textContent = responseData.newTotalQuantity;
+
 
 }
 
