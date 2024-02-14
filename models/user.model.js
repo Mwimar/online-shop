@@ -1,4 +1,5 @@
-const bcrypt=require('bcryptjs')
+const bcrypt = require('bcryptjs')
+
 const db = require("../data/database")
 class User{
     constructor(email, password, fullname, street, postal, city) {
@@ -10,6 +11,14 @@ class User{
             postalCode:postal,
             city:city,           
         };
+    }
+
+    static findById(userId) {       
+      
+const uid = new ObjectId(userId.toString());
+
+
+        return db.getDb().collection('users').findOne({ _id: uid }, { password: -1 });
     }
 
     getUserWithSameEmail() {
