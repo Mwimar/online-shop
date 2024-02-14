@@ -21,6 +21,7 @@ const productRoutes = require('./routes/products.routes');
 const baseRoutes = require('./routes/base.routes');
 const adminRoutes = require('./routes/admin.routes');
 const cartRoutes = require('./routes/cart.routes');
+const ordersRoutes = require('./routes/orders.routes');
 
 
 app.use(express.static("public"));
@@ -39,7 +40,8 @@ app.use('/cart',cartRoutes);
 app.use(authRoutes);
 app.use(productRoutes);
 app.use(protectRoutesMiddleware);
-app.use('/admin',adminRoutes);
+app.use('/orders', ordersRoutes);
+app.use('/admin', adminRoutes);
 app.use(errorHandlerMiddleware);
 
 db.connectToDatabase()
