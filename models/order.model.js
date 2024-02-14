@@ -29,6 +29,7 @@ class Order{
                 status: this.status
                 
             };
+            return db.getDb().collection('orders').insertOne(orderDocument);
         }
     }
 }
