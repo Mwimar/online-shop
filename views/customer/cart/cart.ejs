@@ -21,7 +21,11 @@
 
         <div id="cart-total">
             <p>Total: <span id="cart-total-price">$<%= locals.cart.totalPrice.toFixed(2) %></span></p>
+            <% if (locals.isAuth) { %>
             <button class="btn" type="button">Buy Products</button>
+            <% }else {%>
+                <p>Login to proceed and purchase the products</p>
+                <% } %>
         </div>
 
     </main>
