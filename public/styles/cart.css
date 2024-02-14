@@ -39,6 +39,8 @@
 
 }
 
+
+
 @media(min-width:48rem) {
     .cart-item {
         flex-direction: row;
