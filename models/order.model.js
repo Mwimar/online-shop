@@ -1,4 +1,5 @@
 const db = require('../data/database');
+const mongodb = require('mongodb');
 
 class Order{
     //Status = pending, filfilled, cancelled
@@ -35,7 +36,7 @@ class Order{
     }
 
     static async findAll() {
-        const orders = await db.getDb.collection('orders').find().toArray();
+        const orders = await db.getDb.collection('orders').find().sort({_id:-1}).toArray();
 
         return this.transformOrderDocuments(orders);
     }
@@ -44,6 +45,12 @@ class Order{
         const orders = await db.getDb.collection('orders').find({ 'userData._id': uid }).sort({ _id: -1 }).toArray();
         
         return this.transformOrderDocuments(orders)
+    }
+
+    static async findById(orderId) {
+        const order = await db.getDb.collection('orders').findOne({ _id: new mongodb.ObjectId(orderId) });
+
+        return this.transformOrderDocument(order);
     }
 
 
