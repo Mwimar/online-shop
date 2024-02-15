@@ -11,10 +11,11 @@ async function addOrder(req, res,next) {
     }
     const order = new Order(cart, userDocument);
     try {
-        order.save();
+        await order.save();
     } catch (error) {
         return next(error);
-     }
+    }
+    res.redirect('/orders')
         
     }
 
