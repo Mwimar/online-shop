@@ -34,6 +34,12 @@ class Order{
         return orderDocs.map(this.transformOrderDocument);
     }
 
+    static async findAll() {
+        const orders = await db.getDb.collection('orders').find().toArray();
+
+        return this.transformOrderDocuments(orders);
+    }
+
 
     save() {
         if (this.id) {
