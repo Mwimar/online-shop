@@ -2,7 +2,7 @@ const Order = require('../models/order.model');
 const User = require('../models/user.model');
 
 function getOrders(req, res) {
-    res.render('customer.orders/all-orders');
+    res.render('customer/orders/all-orders');
 }
 
 async function addOrder(req, res,next) {
