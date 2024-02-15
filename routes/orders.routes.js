@@ -4,7 +4,10 @@ const ordersController = require("../controllers/orders.controller");
 
 const router = express.Router();
 
-router.get("/", ordersController.addOrder);
+router.post("/", ordersController.addOrder);
+
+router.get('/', ordersController.getOrders);
+
 
 
 
