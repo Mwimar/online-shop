@@ -30,6 +30,10 @@ class Order{
         );
     }
 
+    static transformOrderDocuments(orderDocs) {
+        return orderDocs.map(this.transformOrderDocument);
+    }
+
 
     save() {
         if (this.id) {
