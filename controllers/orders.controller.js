@@ -19,6 +19,7 @@ async function addOrder(req, res,next) {
     } catch (error) {
         return next(error);
     }
+    req.session.cart = null;
     res.redirect('/orders')
         
     }
