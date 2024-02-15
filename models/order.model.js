@@ -18,6 +18,19 @@ class Order{
         }
         this.id = orderId;
     }
+
+
+    static transformOrderDocument(orderDoc) {
+        return new Order(
+            orderDoc.productData,
+            orderDoc.userData,
+            orderDoc.status,
+            orderDoc.date,
+            orderDoc._id
+        );
+    }
+
+
     save() {
         if (this.id) {
             
