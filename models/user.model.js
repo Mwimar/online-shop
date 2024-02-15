@@ -15,7 +15,7 @@ class User{
 
     static findById(userId) {         
       
-        const uid = new mongodb.ObjectId.createFromTime(userId);
+        const uid = new mongodb.ObjectId(userId);
         
         return db.getDb().collection('users').findOne({ _id: uid }, { password: -1 });
     }

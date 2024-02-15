@@ -17,7 +17,7 @@ class Product {
         let prodId
         
         try {
-            prodId = new mongodb.ObjectId.createFromTime(productId);
+            prodId = new mongodb.ObjectId(productId);
             
         } catch (error) { 
             error.code = 404;
@@ -55,7 +55,7 @@ class Product {
         }
 
         if (this.id) {
-            const productId = new mongodb.ObjectId.createFromTime(this.id);
+            const productId = new mongodb.ObjectId(this.id);
 
             if (!this.image) {
                 delete productData.image;
@@ -80,7 +80,7 @@ class Product {
     }
 
      remove() {
-        const productId = new mongodb.ObjectId.createFromTime(this.id);
+        const productId = new mongodb.ObjectId(this.id);
         return db.getDb().collection('products').deleteOne({_id:productId})
     }    
 }
