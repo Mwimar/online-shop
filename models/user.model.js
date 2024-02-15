@@ -13,8 +13,7 @@ class User{
         };
     }
 
-    static findById(userId) {  
-        
+    static findById(userId) {         
       
         const uid = new mongodb.ObjectId.createFromTime(userId);
         
