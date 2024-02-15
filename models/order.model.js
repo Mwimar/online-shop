@@ -40,6 +40,12 @@ class Order{
         return this.transformOrderDocuments(orders);
     }
 
+    static async findAllForUser(userId) {
+        const orders = await db.getDb.collection('orders').find({ 'userData._id': uid }).sort({ _id: -1 }).toArray();
+        
+        return this.transformOrderDocuments(orders)
+    }
+
 
     save() {
         if (this.id) {
