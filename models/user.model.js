@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs')
-
+const mongodb = require('mongodb');
 const db = require("../data/database")
 class User{
     constructor(email, password, fullname, street, postal, city) {
@@ -13,11 +13,11 @@ class User{
         };
     }
 
-    static findById(userId) {       
+    static findById(userId) {  
+        
       
-const uid = new ObjectId(userId.toString());
-
-
+        const uid = new mongodb.ObjectId.createFromTime(userId);
+        
         return db.getDb().collection('users').findOne({ _id: uid }, { password: -1 });
     }
 
