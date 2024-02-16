@@ -1,4 +1,5 @@
 const Product = require('../models/product.model');
+const Order = require('../models/order.model');
 
 async function getProducts(req, res, next) {
     try {
@@ -13,6 +14,19 @@ async function getProducts(req, res, next) {
 function getNewProduct(req, res) {
     res.render('admin/products/new-product');
  }
+
+
+ async function getOrders(req, res, next) {
+    try {
+        const orders = await Order.findAll();
+        res.render('admin/orders/admin-orders', {
+            orders:orders
+        });
+    } catch (error) {
+        next(error);
+    }
+}
+
 
 async function createNewProduct(req, res, next) { 
     const product = new Product({
@@ -82,5 +96,6 @@ module.exports = {
     createNewProduct: createNewProduct,  
     getUpdateProduct: getUpdateProduct,
     updateProduct: updateProduct,
-    deleteProduct:deleteProduct, 
+    deleteProduct: deleteProduct,
+    getOrders:getOrders
 }

@@ -36,7 +36,7 @@ class Order{
     }
 
     static async findAll() {
-        const orders = await db.getDb.collection('orders').find().sort({_id:-1}).toArray();
+        const orders = await db.getDb().collection('orders').find().sort({_id:-1}).toArray();
 
         return this.transformOrderDocuments(orders);
     }
