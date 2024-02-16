@@ -27,6 +27,25 @@ class Cart {
                 deletableCartItemProductIds.push(cartItem.product.id);
                 continue;
             }
+            //product was not deleted;
+            //set product data and total price to latest prices from database
+
+            cartItem.product = product;
+            cartItem.totalPrice = cartItem.quantity * cartItem.product.price;
+        }
+
+        if (deletableCartItemProductIds.length > 0) {
+            this.items = this.items.filter(function (item) {
+                return productIds.indexOf(item.product.id) < 0;
+            });
+        }
+        //recalculate cart totals
+        this.totalQuantity = 0;
+        this.totalPrice = 0;
+
+        for (const item of this.items) {
+            this.totalQuantity + item.quantity;
+            this.totalPrice = this.totalPrice + item.totalPrice;
         }
     }
 
