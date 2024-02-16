@@ -25,7 +25,7 @@
                 <select name="status">
                     <option value="pending" <% if (order.status ==='pending') { %>selected<% } %>>Pending</option>
                     <option value="fulfilled" <% if (order.status ==='fulfilled') { %>selected<% } %>>Fulfilled</option>
-                    <option value="pending" <% if (order.status ==='cancelled') { %>selected<% } %>>Cancelled</option>
+                    <option value="cancelled" <% if (order.status ==='cancelled') { %>selected<% } %>>Cancelled</option>
                 </select>
                 <button class="btn btn-alt">Update</button>
             </form>

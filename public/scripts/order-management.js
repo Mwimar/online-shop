@@ -1,4 +1,4 @@
-const updateOrderFirmElements = document.querySelectorAll('.order-actions form');
+const updateOrderFormElements = document.querySelectorAll('.order-actions form');
 
 async function updateOrder(event) {
     event.preventDefault();
@@ -23,6 +23,10 @@ async function updateOrder(event) {
     } catch (error) {
         alert('Something went wrong - could not update order status.');
         return;
+    }
+
+    if (!response.ok) {
+        alert('Something went wrong: could not update order status')
     }
 
     const resposeData = await response.json();
