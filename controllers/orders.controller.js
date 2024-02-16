@@ -1,7 +1,7 @@
 const Order = require('../models/order.model');
 const User = require('../models/user.model');
 
-async function getOrders(req, res) {
+async function getOrders(req, res,next) {
     try {
         const orders = await Order.findAllForUser(res.locals.uid);
         res.render('customer/orders/all-orders', {

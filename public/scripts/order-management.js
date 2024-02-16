@@ -24,4 +24,14 @@ async function updateOrder(event) {
         alert('Something went wrong - could not update order status.');
         return;
     }
+
+    const resposeData = await response.json();
+
+    form.parentElement.parentElement.querySelector('.badge').textContent = resposeData.newStatus.toUpperCase();
+
+}
+
+
+for (const updateOrderFormElement of updateOrderFormElements) {
+    updateOrderFormElement.addEventListener('submit', updateOrder);
 }
