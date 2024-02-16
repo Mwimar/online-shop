@@ -6,6 +6,7 @@ const checkAuthStatusMiddleware = require('./middlewares/check-auth');
 const protectRoutesMiddleware = require('./middlewares/protect-routes');
 const cartMiddleware = require('./middlewares/cart');
 const updateCartPricesMiddleware = require('./middlewares/update-cart-prices');
+const notFoundMiddleware = require('./middlewares/not-found');
 const createSessionConfig = require('./config/sessions');
 
 const mongodb = require("mongodb");
@@ -25,6 +26,7 @@ const cartRoutes = require('./routes/cart.routes');
 const ordersRoutes = require('./routes/orders.routes');
 
 
+
 app.use(express.static("public"));
 app.use('/products/assets', express.static('product-data'))
 app.use(express.urlencoded({ extended: false }));//only supports regular form submission
@@ -41,9 +43,9 @@ app.use(baseRoutes);
 app.use('/cart',cartRoutes);
 app.use(authRoutes);
 app.use(productRoutes);
-app.use(protectRoutesMiddleware);
-app.use('/orders', ordersRoutes);
-app.use('/admin', adminRoutes);
+app.use('/orders', protectRoutesMiddleware, ordersRoutes);
+app.use('/admin', protectRoutesMiddleware, adminRoutes);
+app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
 db.connectToDatabase()
