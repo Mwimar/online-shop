@@ -27,6 +27,22 @@ function getNewProduct(req, res) {
     }
 }
 
+async function updateOrder(req, res, next) {
+    const orderId = req.params.id;
+    const newStatus = req.body.newStatus;
+
+    try {
+        const order = await Order.findById(orderId);
+
+        order.status = newStatus;
+
+        await order.save();
+
+        res.json({ message: 'Order Updated', newStatus: newStatus });
+    } catch (error) {
+        next(error);
+    }
+}
 
 async function createNewProduct(req, res, next) { 
     const product = new Product({
@@ -97,5 +113,6 @@ module.exports = {
     getUpdateProduct: getUpdateProduct,
     updateProduct: updateProduct,
     deleteProduct: deleteProduct,
-    getOrders:getOrders
+    getOrders: getOrders,
+    updateOrder:updateOrder
 }

@@ -42,7 +42,14 @@ class Order{
     }
 
     static async findAllForUser(userId) {
-        const uid = new mongodb.ObjectId(userId);
+        let uid;
+        try {
+            uid = new mongodb.ObjectId(userId);
+            
+        } catch (error) {
+            console.log('Invalid UserId', error);
+            return;
+        }
         const orders = await db.getDb().collection('orders').find({ 'userData._id': uid }).sort({ _id: -1 }).toArray();
         
         return this.transformOrderDocuments(orders);

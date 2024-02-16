@@ -1,6 +1,6 @@
 <article>
     <header>
-        <h2><span class="order-item-price"><%= order.productData.totalPrice.toFixed(2) %></span></h2>
+        <h2><span class="order-item-price">$<%= order.productData.totalPrice.toFixed(2) %></span></h2>
         <p><span class="badge"><%= order.status.toUpperCase() %></span></p>
     </header>
 
@@ -8,7 +8,7 @@
         <% if (locals.isAdmin) {%>
             <address>
                 <p><a href="mailto:<%= order.userData.email %>"><%= order.userData.name %></a></p>
-                <p><%= order.userData.address.street %> (<%= order.userData.postalCode %> <%= order.userData.city %>)</p>
+                <p><%= order.userData.address.street %> (<%= order.userData.address.postalCode %> <%= order.userData.city %>)</p>
             </address>
             <% } %>
             <ul>
@@ -21,7 +21,7 @@
     <% if (locals.isAdmin) {%>
         <section class="order-actions">
             <form>
-                <input type="hidden" value="<%= order.id %>">
+                <input type="hidden" name="orderid" value="<%= order.id %>">
                 <select name="status">
                     <option value="pending" <% if (order.status ==='pending') { %>selected<% } %>>Pending</option>
                     <option value="fulfilled" <% if (order.status ==='fulfilled') { %>selected<% } %>>Fulfilled</option>
