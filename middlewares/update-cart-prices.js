@@ -3,7 +3,7 @@ async function updateCartPrices(req, res, next) {
 
     await cart.updatePrices();
 
-    next()
+    next();
 }
 
 module.exports = updateCartPrices;
