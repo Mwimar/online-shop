@@ -1,5 +1,8 @@
+const stripe = require('stripe');
+
 const Order = require('../models/order.model');
 const User = require('../models/user.model');
+const stripeObj = stripe('sk_test_51OlUvHKziNBk6KU21Pi6VGisnskdETuyZiOTG1kyyM9sHc2CqHsYO6rjqzsp5OtNuLg8VNz8Z5YnNvQzemYIyo2f007PInKUp9');
 
 async function getOrders(req, res,next) {
     try {
