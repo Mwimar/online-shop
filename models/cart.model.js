@@ -39,14 +39,15 @@ class Cart {
                 return productIds.indexOf(item.product.id) < 0;
             });
         }
-        //recalculate cart totals
-        this.totalQuantity = 0;
-        this.totalPrice = 0;
+       //recalculate cart totals
+this.totalQuantity = 0;
+this.totalPrice = 0;
 
-        for (const item of this.items) {
-            this.totalQuantity + item.quantity;
-            this.totalPrice = this.totalPrice + item.totalPrice;
-        }
+for (const item of this.items) {
+    this.totalQuantity += item.quantity; // Corrected line
+    this.totalPrice += item.totalPrice;
+}
+
     }
 
     addItem(product) {
