@@ -56,12 +56,20 @@ async function addOrder(req, res,next) {
         
 }
     
-function getSuccess() {
+function getSuccess(req,res) {
     res.render('/customer/orders/success')
 }
+
+
+function getFailure(req,res) {
+    res.render('/customer/orders/failure')
+}
+
+
 
 module.exports = {
     addOrder: addOrder,
     getOrders: getOrders,
-    getSuccess:getSuccess,
+    getSuccess: getSuccess,
+    getFailure:getFailure
 }
