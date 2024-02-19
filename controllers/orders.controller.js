@@ -54,9 +54,14 @@ async function addOrder(req, res,next) {
 
   res.redirect(303, session.url);
         
-    }
+}
+    
+function getSuccess() {
+    res.render('/customer/orders/success')
+}
 
 module.exports = {
     addOrder: addOrder,
-    getOrders:getOrders
+    getOrders: getOrders,
+    getSuccess:getSuccess,
 }
