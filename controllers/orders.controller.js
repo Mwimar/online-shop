@@ -31,21 +31,28 @@ async function addOrder(req, res,next) {
     }
     req.session.cart = null;
 
+
     const session = await stripe.checkout.sessions.create({
+    payment_method_types:['card'],
     line_items: [
-      {
+      { 
         // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-        price: '{{PRICE_ID}}',
+            price_data: {
+              currency: "usd",
+              product_data: {
+                    name:'dummy',
+              },
+              unit_amount_decimal: 10.99
+            },
         quantity: 1,
       },
     ],
     mode: 'payment',
-    success_url: `${YOUR_DOMAIN}/success.html`,
-    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+    success_url: `localhost:3000/success.html`,
+    cancel_url: `localhost:3000/cancel.html`,
   });
 
   res.redirect(303, session.url);
-;
         
     }
 
