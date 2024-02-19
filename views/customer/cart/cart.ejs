@@ -21,12 +21,12 @@
 
         <div id="cart-total">
             <p>Total: <span id="cart-total-price">$<%= locals.cart.totalPrice.toFixed(2) %></span></p>
-            <% if (locals.isAuth) { %>
+            <% if (locals.isAuth && locals.cart.totalQuantity > 0) { %>
                 <form action="/orders" method="POST">
                     <button class="btn" type="submit">Buy Products</button>
                 </form>
             <% }else {%>
-                <p id="cart-total-fallback">Login to proceed and purchase the products</p>
+                <p id="cart-total-fallback">Login to add items and purchase the products</p>
                 <% } %>
         </div>
 
