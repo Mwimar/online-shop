@@ -1,4 +1,6 @@
-const stripe = require('stripe')(sk_test_51OlUvHKziNBk6KU21Pi6VGisnskdETuyZiOTG1kyyM9sHc2CqHsYO6rjqzsp5OtNuLg8VNz8Z5YnNvQzemYIyo2f007PInKUp9);
+const stripe = require('stripe')('sk_test_51OlUvHKziNBk6KU21Pi6VGisnskdETuyZiOTG1kyyM9sHc2CqHsYO6rjqzsp5OtNuLg8VNz8Z5YnNvQzemYIyo2f007PInKUp9');
+
+
 
 const Order = require('../models/order.model');
 const User = require('../models/user.model');
@@ -34,7 +36,7 @@ async function addOrder(req, res,next) {
 
     const session = await stripe.checkout.sessions.create({
     payment_method_types:['card'],
-        line_items: cart.item.map(function (item) {
+        line_items: cart.items.map(function (item) {
         return { 
         // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
             price_data: {
