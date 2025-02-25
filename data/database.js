@@ -1,12 +1,23 @@
-const mongodb = require("mongodb");
-
-const MongoClient = mongodb.MongoClient;
+require("dotenv").config();
+const { MongoClient } = require("mongodb");
 
 let database;
 
 async function connect() {
-  const client = await MongoClient.connect("mongodb://localhost:27017");
-  database = client.db("online-shop");
+  const uri = process.env.MONGODB_URI;
+  if (!uri) {
+    throw new Error("MONGODB_URI is not defined in the .env file");
+  }
+
+  try {
+    const client = new MongoClient(uri);
+    await client.connect();
+    database = client.db();
+    console.log("Connected to MongoDB ");
+  } catch (error) {
+    console.error("Could not connect to Database:", error.message);
+    process.exit(1); // Exit the process if connection fails
+  }
 }
 
 function getDb() {
@@ -16,7 +27,4 @@ function getDb() {
   return database;
 }
 
-module.exports = {
-  getDb: getDb,
-  connectToDatabase: connect,
-};
+module.exports = { getDb, connectToDatabase: connect };
